@@ -1,4 +1,5 @@
 //yes, this demo is entirely sourced from chatgpt, so this isn't near complete yet most likely
+//small note, apparently whille kimera-vio can be used without ROS, is designed around ROS for communication, data handling, and visualisation (according to chatgpt lol)
 #include <opencv2/opencv.hpp>
 #include <ros/ros.h>
 
