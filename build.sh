@@ -16,7 +16,7 @@ if [ ! -d gtsam ]; then
   cd build
   cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_POSE3_EXPMAP=ON -DGTSAM_ROT3_EXPMAP=ON -DGTSAM_TANGENT_PREINTEGRATION=OFF
   sudo make -j $(nproc) install
-  cd ..
+  cd ../..
 fi
 
 # install opencv
@@ -29,7 +29,7 @@ if [ ! -d opencv ]; then
   cd build
   cmake .. -DWITH_VTK=On -DWITH_TBB=On
   sudo make -j $(nproc) install
-  cd ..
+  cd ../..
 fi
 
 # install opengv
@@ -40,7 +40,7 @@ if [ ! -d opengv ]; then
   cd build
   cmake .. -DEIGEN_INCLUDE_DIR=/usr/local/include/gtsam/gtsam/3rdparty/Eigen -DEIGEN_INCLUDE_DIRS=/usr/local/include/gtsam/gtsam/3rdparty/Eigen
   sudo make -j $(nproc) install
-  cd ..
+  cd ../..
 fi
 
 # install DBoW2
@@ -51,7 +51,7 @@ if [ ! -d DBoW2 ]; then
   cd build
   cmake ..
   sudo make -j $(nproc) install
-  cd ..
+  cd ../..
 fi
 
 # install kimera-rpgo
@@ -62,7 +62,7 @@ if [ ! -d Kimera-RPGO ]; then
   cd build
   cmake ..
   sudo make -j $(nproc)
-  cd ..
+  cd ../..
 fi
 
 # install kimera-vio
@@ -74,5 +74,5 @@ if [ ! -d Kimera-VIO ]; then
   mkdir build
   cmake ..
   sudo make -j $(nproc)
-  cd ..
+  cd ../..
 fi
