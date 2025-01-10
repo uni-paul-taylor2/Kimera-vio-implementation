@@ -12,7 +12,7 @@ sudo apt-get install libboost-all-dev
 sudo snap install cmake --classic
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt install git
-git clone https://github.com/uni-paul-taylor2/Kimera-vio-implementation.git
+git clone https://github.com/uni-paul-taylor2/kimera-vio-implementation.git
 ```
 ### Build
 The rest, is taken up by `bash ./build.sh` when in the directory of this repository
