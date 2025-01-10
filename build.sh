@@ -8,7 +8,9 @@ cd cmake_repositories
 
 # install gtsam
 if [ ! -d gtsam ]; then
-  git clone git@github.com:borglab/gtsam.git
+  #git clone git@github.com:borglab/gtsam.git
+  #above notation was causing some concerning looking prompts so back to the default method
+  git clone https://github.com/borglab/gtsam.git
   cd gtsam
   git checkout 4.2
   mkdir build
@@ -55,7 +57,9 @@ fi
 
 # install kimera-vio
 if [ ! -d Kimera-VIO ]; then
-  git clone git@github.com:MIT-SPARK/Kimera-VIO.git Kimera-VIO
+  #git clone git@github.com:MIT-SPARK/Kimera-VIO.git Kimera-VIO
+  #above notation was causing some concerning looking prompts so back to the default method
+  git clone https://github.com/MIT-SPARK/Kimera-VIO.git
   cd Kimera-VIO
   mkdir build
   cmake ..
