@@ -1,6 +1,5 @@
-# this is intended for kimera at first then would be edited for actual use in this repository
 sudo apt install -y cmake libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev
-sudo apt install -y unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libpartemis-dev libatlas-base-dev gfortran
+sudo apt install -y unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran
 
 cd $HOME
 mkdir cmake_repositories
@@ -12,10 +11,10 @@ if [ ! -d gtsam ]; then
   #above notation was causing some concerning looking prompts so back to the default method
   git clone https://github.com/borglab/gtsam.git
   cd gtsam
-  git checkout 4.2
+  git checkout tags/4.2
   mkdir build
   cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_POSE3_EXPMAP=ON -DGTSAM_ROT3_EXPMAP=ON -DGTSAM_TANGENT_PREINTEGRATION=OFF ..
+  cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_POSE3_EXPMAP=ON -DGTSAM_ROT3_EXPMAP=ON -DGTSAM_TANGENT_PREINTEGRATION=OFF
   sudo make -j $(nproc) install
   cd ..
 fi
@@ -24,11 +23,11 @@ fi
 if [ ! -d opencv ]; then
   git clone https://github.com/opencv/opencv.git
   cd opencv
-  git checkout tags/4.2
-  #there is a way later version, 4.11 at the time of this commit though
+  git checkout tags/4.2.0
+  #there is a way later version, 4.11.0 at the time of this commit though
   mkdir build
   cd build
-  cmake -DWITH_VTK=On -DWITH_TBB=On ..
+  cmake .. -DWITH_VTK=On -DWITH_TBB=On
   sudo make -j $(nproc) install
   cd ..
 fi
@@ -40,6 +39,17 @@ if [ ! -d opengv ]; then
   mkdir build
   cd build
   cmake .. -DEIGEN_INCLUDE_DIR=/usr/local/include/gtsam/gtsam/3rdparty/Eigen -DEIGEN_INCLUDE_DIRS=/usr/local/include/gtsam/gtsam/3rdparty/Eigen
+  sudo make -j $(nproc) install
+  cd ..
+fi
+
+# install DBoW2
+if [ ! -d DBoW2 ]; then
+  git clone https://github.com/dorian3d/DBoW2.git
+  cd DBoW2
+  mkdir build
+  cd build
+  cmake ..
   sudo make -j $(nproc) install
   cd ..
 fi
