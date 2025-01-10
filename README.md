@@ -3,7 +3,7 @@ Basic Example Utilisation of Kimera VIO
 
 ## Setup
 ### Install
-This shows how to install from scratch with all the necessary pre-dependencies
+This shows how to install from scratch with all the necessary pre-dependencies (Recommended Ubuntu 22 LTS)
 ```
 sudo apt upgrade
 sudo apt install gcc g++ build-essential
