@@ -73,6 +73,7 @@ if [ ! -d Kimera-VIO ]; then
   git clone https://github.com/MIT-SPARK/Kimera-VIO.git
   cd Kimera-VIO
   mkdir build
+  cd build
   cmake ..
   sudo make -j $(nproc) install
   cd ../..
