@@ -62,7 +62,7 @@ if [ ! -d Kimera-RPGO ]; then
   mkdir build
   cd build
   cmake ..
-  sudo make -j $(nproc)
+  sudo make -j $(nproc) install
   cd ../..
 fi
 
@@ -74,6 +74,6 @@ if [ ! -d Kimera-VIO ]; then
   cd Kimera-VIO
   mkdir build
   cmake ..
-  sudo make -j $(nproc)
+  sudo make -j $(nproc) install
   cd ../..
 fi
