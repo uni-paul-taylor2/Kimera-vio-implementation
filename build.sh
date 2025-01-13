@@ -28,7 +28,8 @@ if [ ! -d opencv ]; then
   #there is a way later version, 4.11.0 at the time of this commit though
   mkdir build
   cd build
-  cmake .. -DWITH_VTK=On -DWITH_TBB=On
+  cmake .. -DWITH_VTK=On -DWITH_TBB=Off
+  #yes tbb can be on but it may cause an annoying issue of NOT WORKING ;-;
   sudo make -j $(nproc) install
   cd ../..
 fi
