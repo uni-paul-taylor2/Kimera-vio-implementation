@@ -1,6 +1,6 @@
 sudo apt install -y cmake libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev libavcodec-dev libavformat-dev libswscale-dev
 sudo apt install -y unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran
-sudo apt install -y ffmpeg python3-dev python3-numpy
+sudo apt install -y ffmpeg python3-dev python3-numpy libeigen3-dev
 
 cd $HOME
 mkdir cmake_repositories
