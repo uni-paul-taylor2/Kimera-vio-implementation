@@ -24,8 +24,7 @@ fi
 if [ ! -d opencv ]; then
   git clone https://github.com/opencv/opencv.git
   cd opencv
-  git checkout tags/4.2.0
-  #there is a way later version, 4.11.0 at the time of this commit though
+  git checkout 4.x
   mkdir build
   cd build
   cmake .. -DWITH_VTK=On -DWITH_TBB=Off
