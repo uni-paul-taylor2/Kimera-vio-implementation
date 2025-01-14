@@ -1,3 +1,4 @@
+//I might delete this highkey
 //g++ -I/usr/local/include/gtsam -I/usr/local/include/gtsam/3rdparty/Eigen demo_gtsam.cpp -o demo_gtsam.o
 
 #include <Eigen/Core>
