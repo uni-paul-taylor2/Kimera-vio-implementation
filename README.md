@@ -20,3 +20,6 @@ The rest, is taken up by `bash ./build.sh` when in the directory of this reposit
 
 #### Demo
 To demonstrate, in the directory of this repository, run `bash demo.sh` :D
+
+#### Reset
+To reset (in order to rebuild), in the directory of this repository run `bash reset.sh`
