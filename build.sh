@@ -39,7 +39,7 @@ if [ ! -d opengv ]; then
   cd opengv
   mkdir build
   cd build
-  cmake .. -DEIGEN_INCLUDE_DIR=$HOME/cmake_repositories/gtsam/gtsam/3rdparty/Eigen -DEIGEN_INCLUDE_DIRS=$HOME/cmake_repositories/gtsam/gtsam/3rdparty/Eigen
+  cmake .. -DEIGEN_INCLUDE_DIR=/usr/include/eigen3 -DEIGEN_INCLUDE_DIRS=/usr/include/eigen3
   sudo make -j $(nproc) install
   cd ../..
 fi
