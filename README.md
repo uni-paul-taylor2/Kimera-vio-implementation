@@ -5,14 +5,12 @@ Basic Example Utilisation of Kimera VIO (Specifically Ubuntu 20 Recommended)
 #### Install
 This shows how to install from scratch with all the necessary pre-dependencies (Recommended Ubuntu 22 LTS)
 ```
-sudo apt update
-sudo apt upgrade
-sudo apt install gcc g++ build-essential
-sudo apt install libssl-dev
-sudo apt-get install libboost-all-dev
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install -y gcc g++ build-essential libssl-dev libboost-all-dev
 sudo snap install cmake --classic
-sudo add-apt-repository ppa:git-core/ppa
-sudo apt install git
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt install -y git
 git clone https://github.com/uni-paul-taylor2/kimera-vio-implementation.git
 ```
 
