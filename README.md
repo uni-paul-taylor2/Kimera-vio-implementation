@@ -5,6 +5,7 @@ Basic Example Utilisation of Kimera VIO
 #### Install
 This shows how to install from scratch with all the necessary pre-dependencies (Recommended Ubuntu 22 LTS)
 ```
+sudo apt update
 sudo apt upgrade
 sudo apt install gcc g++ build-essential
 sudo apt install libssl-dev
