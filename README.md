@@ -1,5 +1,5 @@
 # Kimera-vio-implementation
-Basic Example Utilisation of Kimera VIO
+Basic Example Utilisation of Kimera VIO (Specifically Ubuntu 20 Recommended)
 
 ## Setup
 #### Install
