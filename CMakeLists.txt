@@ -3,14 +3,11 @@ project(KimeraVioImplementation)
 
 set(CMAKE_CXX_STANDARD 14)
 
-# Find Kimera-VIO
 find_package(kimera_vio REQUIRED)
+find_package(Eigen3 REQUIRED)
 
-# Include directories
-include_directories(${kimera_vio_INCLUDE_DIRS})
+include_directories(${kimera_vio_INCLUDE_DIRS} ${EIGEN3_INCLUDE_DIR})
 
-# Add executable
 add_executable(kimera_vio_demo demo.cpp)
 
-# Link libraries
 target_link_libraries(kimera_vio_demo ${kimera_vio_LIBRARIES})
