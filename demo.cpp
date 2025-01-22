@@ -2,7 +2,7 @@
 
 #include <gflags/gflags.h>
 #include <glog/logging.h>
-#include <kimera-vio/KimeraVioApp.h>
+// #include <kimera-vio/KimeraVioApp.h> //is this even real?
 #include <kimera-vio/pipeline/Pipeline.h>
 
 #include <string>
