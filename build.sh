@@ -1,69 +1,68 @@
 sudo apt-get update
 sudo apt upgrade
+#sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
 sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev libavcodec-dev libavformat-dev libswscale-dev \
   unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran ffmpeg \
-  python3-dev python3-numpy libeigen3-dev libopencv-dev libopencv-contrib-dev libmetis-dev xvfb python3 python3-pip python3-tk
+  python3-dev python3-numpy libeigen3-dev libmetis-dev xvfb python3 python3-pip python3-tk \
+  libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev \
+  libc++-dev libepoxy-dev libglew-dev cmake g++ ninja-build \
+  catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev
 
 cd $HOME
 mkdir cmake_repositories
 cd cmake_repositories
 
-# install gtsam
-if [ ! -d gtsam ]; then
-  #git clone git@github.com:borglab/gtsam.git
-  #above notation was causing some concerning looking prompts so back to the default method
-  git clone https://github.com/borglab/gtsam.git
-  cd gtsam
-  git checkout tags/4.2
+#install Pangolin
+if [ ! -d Pangolin ]; then
+  git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
+  cd Pangolin
+  ./scripts/install_prerequisites.sh recommended
   mkdir build
   cd build
-  cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DGTSAM_USE_SYSTEM_EIGEN=ON -DGTSAM_POSE3_EXPMAP=ON -DGTSAM_ROT3_EXPMAP=ON -DGTSAM_TANGENT_PREINTEGRATION=OFF -DGTSAM_BUILD_UNSTABLE=ON -DGTSAM_USE_SYSTEM_METIS=ON
-  sudo make -j $(nproc) install
+  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja
+  sudo ninja -j $(nproc) install
+fi
+
+#install opencv_contrib
+if [ ! -d opencv_contrib ]; then
+  git clone --branch 4.6.0 --depth=1 https://github.com/opencv/opencv_contrib.git
+fi
+
+# install opencv
+if [ ! -d opencv ]; then
+  git clone --branch 4.6.0 --depth=1 https://github.com/opencv/opencv.git
+  cd opencv
+  mkdir build
+  cd build
+  cmake .. -GNinja \
+    -D CMAKE_BUILD_TYPE=RELEASE \
+    -DINSTALL_C_EXAMPLES=OFF \
+    -DINSTALL_PYTHON_EXAMPLES=OFF \
+    -DENABLE_FAST_MATH=ON \
+    -DBUILD_opencv_java=OFF \
+    -DBUILD_ZLIB=ON \
+    -DBUILD_TIFF=ON \
+    -DWITH_GTK=ON \
+    -DWITH_FFMPEG=ON \
+    -DWITH_1394=ON \
+    -DOPENCV_GENERATE_PKGCONFIG=ON \
+    -DOPENCV_PC_FILE_NAME=opencv4.pc \
+    -DOPENCV_ENABLE_NONFREE=ON \
+    -DWITH_GSTREAMER=ON \
+    -DWITH_V4L=ON \
+    -DWITH_QT=ON \
+    -DWITH_OPENGL=ON \
+    -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules/ \
+    -DBUILD_EXAMPLES=ON
+  sudo ninja -j $(nproc) install
   cd ../..
 fi
 
-# install opengv
-if [ ! -d opengv ]; then
-  git clone https://github.com/laurentkneip/opengv.git
-  cd opengv
-  mkdir build
+#installing ORB_SLAM3
+if [ ! -d ORB_SLAM3 ]; then
+  git clone --depth=1 https://github.com/uni-paul-taylor2/ORB_SLAM3
   cd build
-  cmake .. -DEIGEN_INCLUDE_DIR=/usr/include/eigen3 -DEIGEN_INCLUDE_DIRS=/usr/include/eigen3
-  sudo make -j $(nproc) install
-  cd ../..
-fi
-
-# install DBoW2
-if [ ! -d DBoW2 ]; then
-  git clone https://github.com/dorian3d/DBoW2.git
-  cd DBoW2
-  mkdir build
-  cd build
-  cmake ..
-  sudo make -j $(nproc) install
-  cd ../..
-fi
-
-# install kimera-rpgo
-if [ ! -d Kimera-RPGO ]; then
-  git clone https://github.com/MIT-SPARK/Kimera-RPGO.git
-  cd Kimera-RPGO
-  mkdir build
-  cd build
-  cmake ..
-  sudo make -j $(nproc) install
-  cd ../..
-fi
-
-# install kimera-vio
-if [ ! -d Kimera-VIO ]; then
-  #git clone git@github.com:MIT-SPARK/Kimera-VIO.git Kimera-VIO
-  #above notation was causing some concerning looking prompts so back to the default method
-  git clone https://github.com/MIT-SPARK/Kimera-VIO.git
-  cd Kimera-VIO
-  mkdir build
-  cd build
-  cmake ..
-  sudo make -j $(nproc) install
-  cd ../..
+  ./build.sh
+  sudo ninja -j $(nproc) install
+  cd ..
 fi
