@@ -1,5 +1,5 @@
-sudo apt-get update
-sudo apt upgrade
+sudo apt update -y
+sudo apt upgrade -y
 #sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
 #libc++-dev and libgoogle-glog-dev cannot install on the same apt install command... https://bugs.launchpad.net/ubuntu/+source/google-glog/+bug/1991919
 sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev libavcodec-dev libavformat-dev libswscale-dev \
