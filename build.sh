@@ -6,7 +6,7 @@ sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev li
   unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran ffmpeg \
   libepoxy-dev libglew-dev cmake g++ ninja-build catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev \
   python3-dev python3-numpy libeigen3-dev libmetis-dev xvfb python3 python3-pip python3-tk \
-  libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev
+  libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev libc++-dev
 
 cd $HOME
 mkdir cmake_repositories
