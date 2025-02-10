@@ -12,17 +12,6 @@ cd $HOME
 mkdir cmake_repositories
 cd cmake_repositories
 
-#install Pangolin
-if [ ! -d Pangolin ]; then
-  git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
-  cd Pangolin
-  ./scripts/install_prerequisites.sh recommended
-  mkdir build
-  cd build
-  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja
-  sudo ninja -j $(nproc) install
-fi
-
 #install opencv_contrib
 if [ ! -d opencv_contrib ]; then
   git clone --branch 4.6.0 --depth=1 https://github.com/opencv/opencv_contrib.git
@@ -56,6 +45,17 @@ if [ ! -d opencv ]; then
     -DBUILD_EXAMPLES=ON
   sudo ninja -j $(nproc) install
   cd ../..
+fi
+
+#install Pangolin
+if [ ! -d Pangolin ]; then
+  git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
+  cd Pangolin
+  ./scripts/install_prerequisites.sh recommended
+  mkdir build
+  cd build
+  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja
+  sudo ninja -j $(nproc) install
 fi
 
 #installing ORB_SLAM3
