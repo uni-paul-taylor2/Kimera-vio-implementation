@@ -61,6 +61,7 @@ fi
 #installing ORB_SLAM3
 if [ ! -d ORB_SLAM3 ]; then
   git clone --depth=1 https://github.com/uni-paul-taylor2/ORB_SLAM3
+  mkdir build
   cd build
   ./build.sh
   sudo ninja -j $(nproc) install
