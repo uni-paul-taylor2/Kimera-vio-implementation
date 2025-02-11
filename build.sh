@@ -2,6 +2,8 @@ sudo apt update -y
 sudo apt upgrade -y
 #sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
 #libc++-dev and libgoogle-glog-dev cannot install on the same apt install command... https://bugs.launchpad.net/ubuntu/+source/google-glog/+bug/1991919
+sudo apt purge -y libc++-dev
+sudo apt install -y libunwind-dev
 sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev libavcodec-dev libavformat-dev libswscale-dev \
   unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran ffmpeg \
   libepoxy-dev libglew-dev cmake g++ ninja-build catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev \
@@ -23,7 +25,7 @@ if [ ! -d opencv ]; then
   cd opencv
   mkdir -p build
   cd build
-  cmake .. -GNinja \
+  cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local \
     -D CMAKE_BUILD_TYPE=RELEASE \
     -DINSTALL_C_EXAMPLES=OFF \
     -DINSTALL_PYTHON_EXAMPLES=OFF \
@@ -54,7 +56,7 @@ if [ ! -d Pangolin ]; then
   ./scripts/install_prerequisites.sh recommended
   mkdir -p build
   cd build
-  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja
+  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
   sudo ninja -j $(nproc) install
   cd ../..
 fi
