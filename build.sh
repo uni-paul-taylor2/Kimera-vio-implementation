@@ -53,8 +53,8 @@ fi
 if [ ! -d Pangolin ]; then
   git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
   cd Pangolin
+  ./scripts/install_prerequisites.sh recommended
   mkdir -p build
-  #./scripts/install_prerequisites.sh recommended
   cd build
   cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
   sudo ninja -j $(nproc) install
