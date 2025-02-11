@@ -9,7 +9,7 @@ sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev li
   libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev
 
 cd $HOME
-mkdir cmake_repositories
+mkdir -p cmake_repositories
 cd cmake_repositories
 
 #install opencv_contrib
@@ -21,7 +21,7 @@ fi
 if [ ! -d opencv ]; then
   git clone --branch 4.6.0 --depth=1 https://github.com/opencv/opencv.git
   cd opencv
-  mkdir build
+  mkdir -p build
   cd build
   cmake .. -GNinja \
     -D CMAKE_BUILD_TYPE=RELEASE \
@@ -52,7 +52,7 @@ if [ ! -d Pangolin ]; then
   git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
   cd Pangolin
   ./scripts/install_prerequisites.sh recommended
-  mkdir build
+  mkdir -p build
   cd build
   cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja
   sudo ninja -j $(nproc) install
@@ -63,9 +63,8 @@ fi
 if [ ! -d ORB_SLAM3 ]; then
   git clone --depth=1 https://github.com/uni-paul-taylor2/ORB_SLAM3
   cd ORB_SLAM3
-  mkdir build
-  cd build
   ./build.sh
+  cd build
   sudo ninja -j $(nproc) install
   cd ../..
 fi
