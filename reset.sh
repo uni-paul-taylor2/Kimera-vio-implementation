@@ -3,7 +3,8 @@ cd $HOME/cmake_repositories
 for dir in *; do
   if [ -d "$dir" ]; then
     cd "$dir/build"
-    sudo make uninstall
+    #sudo make uninstall
+    sudo ninja uninstall
     cd ../..
   fi
 done
