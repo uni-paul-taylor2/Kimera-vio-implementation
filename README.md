@@ -15,10 +15,10 @@ git clone https://github.com/uni-paul-taylor2/orb_slam3_implementation.git
 ```
 
 #### Build
-The rest, is taken up by `bash ./build.sh` when in the directory of this repository
+The rest, is taken up by `bash build.sh` when in the directory of this repository
 
 #### Demo
-To demonstrate, in the directory of this repository, run `bash ./demo.sh` :D
+To demonstrate, in the directory of this repository, run `bash demo.sh` :D
 
 #### Reset
-To reset (in order to rebuild), in the directory of this repository run `bash ./reset.sh`
+To reset (in order to rebuild), in the directory of this repository run `bash reset.sh`
