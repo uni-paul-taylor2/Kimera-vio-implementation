@@ -6,6 +6,7 @@ for dir in *; do
     sudo make uninstall
     sudo ninja uninstall
     cd ../..
+    sudo rm -rf "$dir"
   fi
 done
 
@@ -17,4 +18,4 @@ sudo apt purge -y libopencv-dev libopencv-contrib-dev libboost-all-dev build-ess
   catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev
 
 cd ..
-sudo rm -rf cmake_repositories
+sudo rm -rf $HOME/cmake_repositories
