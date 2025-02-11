@@ -25,7 +25,7 @@ if [ ! -d opencv ]; then
   cd opencv
   mkdir -p build
   cd build
-  cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local \
+  cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local \
     -DCMAKE_BUILD_TYPE=RELEASE \
     -DINSTALL_C_EXAMPLES=OFF \
     -DINSTALL_PYTHON_EXAMPLES=OFF \
@@ -45,7 +45,7 @@ if [ ! -d opencv ]; then
     -DWITH_OPENGL=ON \
     -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules/ \
     -DBUILD_EXAMPLES=ON
-  sudo ninja -j $(nproc) install
+  sudo make -j $(nproc) install
   cd ../..
 fi
 
@@ -56,8 +56,8 @@ if [ ! -d Pangolin ]; then
   ./scripts/install_prerequisites.sh recommended
   mkdir -p build
   cd build
-  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
-  sudo ninja -j $(nproc) install
+  cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
+  sudo make -j $(nproc) install
   cd ../..
 fi
 
@@ -67,6 +67,6 @@ if [ ! -d ORB_SLAM3 ]; then
   cd ORB_SLAM3
   bash build.sh
   cd build
-  sudo ninja -j $(nproc) install
+  sudo make -j $(nproc) install
   cd ../..
 fi
