@@ -26,7 +26,7 @@ if [ ! -d opencv ]; then
   mkdir -p build
   cd build
   cmake .. -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local \
-    -D CMAKE_BUILD_TYPE=RELEASE \
+    -DCMAKE_BUILD_TYPE=RELEASE \
     -DINSTALL_C_EXAMPLES=OFF \
     -DINSTALL_PYTHON_EXAMPLES=OFF \
     -DENABLE_FAST_MATH=ON \
@@ -53,7 +53,6 @@ fi
 if [ ! -d Pangolin ]; then
   git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
   cd Pangolin
-  ./scripts/install_prerequisites.sh recommended
   mkdir -p build
   cd build
   cmake .. -DCMAKE_BUILD_TYPE=RELEASE -GNinja -DCMAKE_INSTALL_PREFIX=/usr/local
@@ -65,7 +64,7 @@ fi
 if [ ! -d ORB_SLAM3 ]; then
   git clone --depth=1 https://github.com/uni-paul-taylor2/ORB_SLAM3
   cd ORB_SLAM3
-  ./build.sh
+  bash build.sh
   cd build
   sudo ninja -j $(nproc) install
   cd ../..
