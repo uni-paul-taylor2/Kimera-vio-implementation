@@ -53,7 +53,7 @@ fi
 if [ ! -d Pangolin ]; then
   git clone --recursive --depth=1 https://github.com/stevenlovegrove/Pangolin.git
   cd Pangolin
-  ./scripts/install_prerequisites.sh recommended
+  #./scripts/install_prerequisites.sh recommended
   mkdir -p build
   cd build
   cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=/usr/local
