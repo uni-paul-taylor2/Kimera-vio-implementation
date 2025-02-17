@@ -1,3 +1,5 @@
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+#apparently the above line for getting g++ versions that are higher than 11
 sudo apt update -y
 sudo apt upgrade -y
 #sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
