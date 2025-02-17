@@ -1,12 +1,14 @@
+$START_DIR = $(pwd)
 sudo apt update -y
 sudo apt upgrade -y
 #sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
 #libc++-dev and libgoogle-glog-dev cannot install on the same apt install command... https://bugs.launchpad.net/ubuntu/+source/google-glog/+bug/1991919
 sudo apt purge -y libc++-dev
 sudo apt install -y libunwind-dev
+#sudo apt install -y libvtk7-dev
 sudo apt install -y libboost-all-dev build-essential libtbb-dev libgflags-dev libgoogle-glog-dev libavcodec-dev libavformat-dev libswscale-dev \
   unzip pkg-config libjpeg-dev libpng-dev libtiff-dev libvtk7-dev libgtk-3-dev libparmetis-dev libatlas-base-dev gfortran ffmpeg \
-  libepoxy-dev libglew-dev cmake g++ ninja-build catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev \
+  libepoxy-dev libglew-dev ninja-build catch2 libavutil-dev libavdevice-dev libdc1394-dev libraw1394-dev libopenni-dev \
   python3-dev python3-numpy libeigen3-dev libmetis-dev xvfb python3 python3-pip python3-tk \
   libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev
 
@@ -70,3 +72,4 @@ if [ ! -d ORB_SLAM3 ]; then
   sudo make -j $(nproc) install
   cd ../..
 fi
+cd $START_DIR

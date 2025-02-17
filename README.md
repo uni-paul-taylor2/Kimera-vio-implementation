@@ -2,16 +2,32 @@
 Basic vSLAM Implementation using ORB_SLAM3
 
 ## Setup
-#### Install
-This shows how to install from scratch with all the necessary pre-dependencies (Recommended Ubuntu 20 LTS)
+#### Install 
+This shows how to install from scratch with all the necessary pre-dependencies (Recommended Ubuntu 22 LTS)
 ```
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y gcc g++ build-essential libssl-dev libboost-all-dev
+sudo apt install -y build-essential libssl-dev libboost-all-dev
 sudo snap install cmake --classic
+
+# build g++-14 start
+sudo apt install build-essential
+sudo apt install libmpfr-dev libgmp3-dev libmpc-dev -y
+wget http://ftp.gnu.org/gnu/gcc/gcc-14.1.0/gcc-14.1.0.tar.gz
+tar -xf gcc-14.1.0.tar.gz
+cd gcc-14.1.0
+./configure -v --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu --prefix=/usr/local/gcc-14.1.0 --enable-checking=release --enable-languages=c,c++ --disable-multilib --program-suffix=-14.1.0
+make -j $(nproc)
+sudo make -j $(nproc) install
+cd ..
+#build g++-14 stop
+
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt install -y git
 git clone https://github.com/uni-paul-taylor2/orb_slam3_implementation.git
+cd orb_slam3_implementation
+bash build.sh
+cd ..
 ```
 
 #### Build
