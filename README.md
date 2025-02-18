@@ -27,13 +27,15 @@ sudo snap install cmake --classic
 sudo add-apt-repository -y ppa:git-core/ppa
 sudo apt install -y git
 git clone https://github.com/uni-paul-taylor2/orb_slam3_implementation.git
+
+# Build Step Below
 cd orb_slam3_implementation
 bash build.sh
 cd ..
 ```
 
 #### Build
-The rest, is taken up by `bash build.sh` when in the directory of this repository
+If the build step was omitted, the rest, is taken up by `bash build.sh` when in the directory of this repository
 
 #### Demo
 To demonstrate, in the directory of this repository, run `bash demo.sh` :D
