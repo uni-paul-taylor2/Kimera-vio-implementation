@@ -9,7 +9,7 @@ This shows how to install from scratch with all the necessary pre-dependencies b
 ```
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install -y build-essential libssl-dev libboost-all-dev
+sudo apt install -y build-essential libssl-dev libboost-all-dev curl
 sudo snap install cmake --classic
 
 # optional build g++-14 start
@@ -25,11 +25,15 @@ sudo snap install cmake --classic
 # optional build g++-14 stop
 
 sudo add-apt-repository -y ppa:git-core/ppa
-sudo apt install -y git
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+sudo apt install -y git git-lfs
+git lfs install
+
 git clone https://github.com/uni-paul-taylor2/orb_slam3_implementation.git
 
 # Build Step Below
 cd orb_slam3_implementation
+git lfs pull
 bash build.sh
 cd ..
 ```
