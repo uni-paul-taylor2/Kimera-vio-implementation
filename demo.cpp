@@ -69,7 +69,7 @@ int main(int argc, char **argv)
     {
         // Read image from file
         //im = cv::imread(string(argv[3])+"/"+vstrImageFilenames[ni],cv::IMREAD_UNCHANGED); //,cv::IMREAD_UNCHANGED);
-        im = cv::imread(string(argv[3])+"/image"+ni, cv::IMREAD_UNCHANGED);
+        im = cv::imread(string(argv[3])+"/image"+std::to_string(ni), cv::IMREAD_UNCHANGED);
         double tframe = vTimestamps[ni];
 
         if(im.empty())

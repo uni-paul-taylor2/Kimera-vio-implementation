@@ -1,8 +1,10 @@
 $START_DIR = $(pwd)
 sudo apt update -y
 sudo apt upgrade -y
-tar -xzf demo_data.tar.gz
-mv roomMap2 demo_data
+if [ ! -d demo_data ]; then
+  tar -xzf demo_data.tar.gz
+  mv roomMap2 demo_data
+fi
 #sudo apt install -y libopencv-dev libopencv-contrib-dev  #built with source instead now
 #libc++-dev and libgoogle-glog-dev cannot install on the same apt install command... https://bugs.launchpad.net/ubuntu/+source/google-glog/+bug/1991919
 sudo apt purge -y libc++-dev
