@@ -4,7 +4,7 @@ project(vSLAMImplementation)
 set(CMAKE_CXX_STANDARD 14)
 
 # Find Packages
-find_package(EIGEN3 REQUIRED)
+find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Pangolin REQUIRED)
 find_package(ORB_SLAM3 REQUIRED)
